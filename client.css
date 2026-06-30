@@ -1,0 +1,106 @@
+/* --- CONFIGURATION COMPLÈTE CLIENT PRO --- */
+.client-body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.client-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.hidden { display: none !important; }
+
+/* --- HEADER --- */
+.client-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+}
+
+.btn-home {
+    color: #fff; text-decoration: none; font-weight: 600;
+    background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 20px;
+    transition: background 0.2s;
+}
+.btn-home:hover { background: rgba(255,255,255,0.3); }
+
+/* --- STRUCTURES DES BLOCS --- */
+.client-section {
+    background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; margin-bottom: 25px;
+}
+
+.client-section h2 { color: #1e3c72; font-size: 1.3rem; margin-bottom: 15px; border-left: 4px solid #ff9f43; padding-left: 10px; }
+.section-desc { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; }
+
+/* --- FORMULAIRES --- */
+.search-box { display: flex; gap: 20px; flex-wrap: wrap; }
+.input-group { flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+.input-group label { font-weight: 600; font-size: 0.95rem; color: #334155; }
+.input-group select, .input-group input {
+    padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 1rem; outline: none; transition: border-color 0.2s;
+}
+.input-group select:focus, .input-group input:focus { border-color: #2a5298; }
+
+/* --- COMPOSANTS DE SIÈGES CÔTE À CÔTE --- */
+.client-car-block { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+.client-car-title { font-weight: 700; color: #2a5298; margin-bottom: 15px; display: block; font-size: 1.05rem; }
+
+/* Grille Crafter identique dessin */
+.crafter-layout {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; max-width: 320px; background: #334155;
+    padding: 18px; border-radius: 12px; margin: 0 auto;
+}
+
+.allée-vide { visibility: hidden; }
+
+.client-seat {
+    background-color: #10b981; color: white; border: none;
+    padding: 14px 0; font-size: 1rem; font-weight: 700;
+    border-radius: 6px; cursor: pointer; text-align: center;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2);
+}
+.client-seat.reserved { background-color: indianred; color: #94a3b8; cursor: not-allowed; box-shadow: none; }
+.client-seat.selected { background-color: #ff9f43; transform: scale(1.05); box-shadow: 0 0 10px rgba(255,159,67,0.5); }
+
+/* --- FINALISATION --- */
+.booking-summary { background: #eff6ff; border: 1px solid #bfdbfe; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
+.seat-badge { background: #ff9f43; color: white; padding: 3px 8px; border-radius: 4px; font-weight: 700; }
+.time-tag { background: #1e3c72; color: white; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+
+.btn-submit-booking {
+    width: 100%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;
+    border: none; padding: 15px; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(16,185,129,0.2); transition: transform 0.1s;
+}
+.btn-submit-booking:active { transform: scale(0.99); }
+
+/* --- BOITE DE DIALOGUE ALERTE POPUP PRO --- */
+.alert-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px);
+    display: flex; justify-content: center; align-items: center; z-index: 10000;
+}
+.alert-card {
+    background: white; padding: 35px; border-radius: 16px; text-align: center;
+    max-width: 450px; width: 90%; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+}
+.alert-icon { font-size: 3rem; margin-bottom: 15px; }
+.alert-card h3 { color: #10b981; font-size: 1.6rem; margin-bottom: 12px; }
+.alert-card p { font-size: 1.05rem; color: #334155; margin-bottom: 8px; line-height: 1.5; }
+#alert-time-warning { color: #ef4444; font-weight: 700; background: #fef2f2; padding: 8px; border-radius: 6px; border: 1px solid #fee2e2; margin-top: 15px; }
+.alert-card button {
+    margin-top: 20px; background: #1e293b; color: white; border: none;
+    padding: 10px 25px; border-radius: 6px; font-weight: 600; cursor: pointer;
+}
