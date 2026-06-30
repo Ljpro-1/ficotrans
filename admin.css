@@ -1,0 +1,170 @@
+/* --- INITIALISATION --- */
+.admin-body {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.hidden { display: none !important; }
+
+/* --- LOCK SCREEN --- */
+.lock-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, #1e3c72 0%, #121a24 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lock-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.lock-card h2 { color: #1e3c72; margin-bottom: 10px; }
+.lock-card p { color: #64748b; margin-bottom: 20px; }
+.lock-card input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 15px;
+    outline: none;
+}
+.lock-card input:focus { border-color: #2a5298; }
+.lock-card button {
+    width: 100%; background: #2a5298; color: #fff; border: none;
+    padding: 12px; font-size: 1rem; font-weight: 700; border-radius: 6px; cursor: pointer;
+}
+.error-msg { color: #ef4444; margin-top: 10px; font-weight: 600; }
+
+/* --- HEADER ADMIN --- */
+.admin-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.btn-home {
+    color: #fff; text-decoration: none; font-weight: 600;
+    background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 20px;
+}
+
+.date-selector-block {
+    display: flex; align-items: center; gap: 10px;
+}
+
+.date-selector-block input {
+    padding: 8px 12px; border-radius: 6px; border: none; font-size: 1rem; font-weight: 600;
+}
+
+/* --- STRUCTURE DES BLOCS --- */
+.admin-section {
+    background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px;
+}
+
+.trajet-card {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 20px; margin-bottom: 25px;
+}
+
+.trajet-main-info {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+}
+
+.heures-container {
+    background: white; border-radius: 6px; padding: 20px; border-left: 4px solid #ff9f43;
+}
+
+.heures-top-bar {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;
+}
+
+.heure-block { border-bottom: 1px dashed #e2e8f0; padding: 20px 0; }
+.heure-block:last-child { border: none; }
+.heure-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+
+/* --- BOUTONS --- */
+.btn-primary { background: #2a5298; color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn-danger { background: #ef4444; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+.btn-edit { background: #f59e0b; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-right: 5px; }
+.btn-view { background: #10b981; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-right: 5px; font-weight: 600; }
+.btn-view.active { background: #059669; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); }
+.btn-danger-text { background: none; border: none; color: #ef4444; font-weight: 600; cursor: pointer; }
+
+/* --- CRAFTER LAYOUT (16 PLACES) --- */
+.crafter-layout {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; max-width: 340px; background: #334155;
+    padding: 18px; border-radius: 12px; margin-top: 10px;
+}
+
+.allée-vide { visibility: hidden; }
+
+.admin-seat {
+    background-color: #10b981; color: white; border: none;
+    padding: 15px 0; font-size: 1rem; font-weight: 700;
+    border-radius: 6px; cursor: pointer; text-align: center;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2); transition: transform 0.1s;
+}
+.admin-seat:hover { transform: scale(1.05); }
+.admin-seat.reserved { background-color: #ef4444; }
+
+/* --- TABLEAU DES RÉSERVATIONS --- */
+.table-container { overflow-x: auto; margin-top: 15px; }
+.admin-table { width: 100%; border-collapse: collapse; text-align: left; }
+.admin-table th, .admin-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; }
+.admin-table th { background-color: #f8fafc; font-weight: 600; color: #64748b; }
+.seat-badge { background: #ef4444; color: white; padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 0.85rem; }
+.time-tag { background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-weight: 600; }
+.phone-link { color: #2a5298; text-decoration: none; font-weight: 600; }
+.empty-state { text-align: center; color: #64748b; font-style: italic; padding: 20px 0; }
+.no-data { text-align: center; color: #94a3b8; padding: 30px 0; font-style: italic; }
+.badge { background: #cbd5e1; color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; margin-left: 5px; }
+
+
+
+/* --- MODE DETAIL TRAJET --- */
+#trajet-detail {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+#trajet-detail h2 {
+    margin-bottom: 15px;
+    color: #1e3c72;
+}
