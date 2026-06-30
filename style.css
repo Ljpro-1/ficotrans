@@ -1,0 +1,236 @@
+/* ==========================================================================
+   1. RÉINITIALISATION & CONFIGURATION DE BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Supprime le défilement pour un effet application pur */
+    background-color: #000000;
+}
+
+/* ==========================================================================
+   2. BOUTON ADMINISTRATION (Haut à gauche)
+   ========================================================================== */
+.btn-admin {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 10;
+    background-color: rgba(26, 37, 47, 0.7);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.btn-admin:hover {
+    background-color: #1a252f;
+    border-color: #ff9f43;
+    box-shadow: 0 0 15px rgba(255, 159, 67, 0.4);
+}
+
+/* ==========================================================================
+   3. CONTENEUR DU DIAPORAMA PLEIN ÉCRAN
+   ========================================================================== */
+.hero-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.slide-container {
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit l'écran proprement sans déformer les photos */
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out; /* Fondu enchaîné fluide */
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Voile noir transparent sur les images pour faire ressortir les textes */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 2;
+}
+
+/* ==========================================================================
+   4. CONTENEUR DU TEXTE & DES ÉLÉMENTS INTERNES
+   ========================================================================== */
+.content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Répartit les blocs du haut vers le bas */
+    align-items: center;
+    padding: 120px 20px 60px 20px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   5. TITRE PRINCIPAL (Avec effet Or Brillant et Responsive intégré)
+   ========================================================================== */
+.main-title {
+    font-size: 4.5rem; /* Taille idéale sur grand écran */
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: auto; 
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 0 15px;
+    
+    /* Dégradé métallique Or brillant */
+    background: linear-gradient(to right, #ffffff 20%, #ffdf00 40%, #ffffff 60%, #ffffff 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Animation du balayage de lumière en boucle */
+    animation: shineEffect 4s linear infinite;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.9));
+}
+
+/* ==========================================================================
+   6. TEXTE DE BIENVENUE & HIGHLIGHT BRILLANT
+   ========================================================================== */
+.welcome-text {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    margin-bottom: auto;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.welcome-text .highlight {
+    font-weight: 900;
+    /* Dégradé métallique Cuivre / Or Orange */
+    background: linear-gradient(to right, #ff9f43 20%, #fff3e0 40%, #ff9f43 60%, #ff9f43 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    animation: shineEffect 3s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 159, 67, 0.6));
+}
+
+/* ==========================================================================
+   7. BOUTON CLIENT (Avec Lueur Pulsante)
+   ========================================================================== */
+.btn-client-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-client {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 20px 50px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    
+    /* Animation de pulsation de l'onde lumineuse bleue */
+    animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+.btn-client:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+}
+
+.btn-client:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   8. DÉFINITION DES ANIMATIONS KEYFRAMES
+   ========================================================================== */
+
+/* Déplacement horizontal du dégradé pour simuler le reflet de lumière */
+@keyframes shineEffect {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Effet d'onde lumineuse de lueur qui s'étend autour du bouton */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(42, 82, 152, 0.7), 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(42, 82, 152, 0), 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(42, 82, 152, 0), 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* ==========================================================================
+   9. CORRECTIONS ADAPTATIVES POUR LES SMARTPHONES (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2rem; /* Réduction drastique pour ne pas déborder sur mobile */
+        letter-spacing: 2px;
+    }
+
+    .welcome-text {
+        font-size: 1.3rem; /* Ajustement proportionnel du texte secondaire */
+    }
+
+    .btn-client {
+        padding: 16px 30px; /* Bouton plus compact et lisible sur les petits écrans */
+        font-size: 1.1rem;
+    }
+    
+    .btn-admin {
+        top: 15px;
+        left: 15px;
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+}
