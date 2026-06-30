@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficotrans Plus - Réservation Voyageur</title>
+    <link rel="stylesheet" href="client.css">
+</head>
+<body class="client-body">
+
+    <!-- Fenêtre Pop-up personnalisée pour la confirmation (Masquée par défaut) -->
+    <div id="custom-alert" class="alert-overlay hidden">
+        <div class="alert-card">
+            <div class="alert-icon">✨</div>
+            <h3 id="alert-title"> Voaray tsara ny réservation anao, mba ampirindra tsara ny asa dia iangaviana ianao ho tonga 15min mialohan'ny fiaingana, Misaotra tompoko</h3>
+            <p id="alert-message-mg"></p>
+            <p id="alert-time-warning"></p>
+            <button id="btn-close-alert">Fermer</button>
+        </div>
+    </div>
+
+    <div class="client-container">
+        <header class="client-header">
+            <a href="index.html" class="btn-home">← Accueil</a>
+            <h1>Espace Voyageur</h1>
+        </header>
+
+        <!-- ÉTAPE 1 : CHOIX DU TRAJET ET DE LA DATE -->
+        <section class="client-section">
+            <h2>1. Rechercher un Voyage</h2>
+            <div class="search-box">
+                <div class="input-group">
+                    <label for="select-trajet">Sélectionnez votre trajet :</label>
+                    <select id="select-trajet">
+                        <option value="" disabled selected>Choisir un trajet...</option>
+                        <!-- Rempli par le JS -->
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="client-date">Date de départ :</label>
+                    <input type="date" id="client-date">
+                </div>
+            </div>
+        </section>
+
+        <!-- ÉTAPE 2 : SÉLECTION DE LA VOITURE & DU SIÈGE -->
+        <section id="step-seats-section" class="client-section hidden">
+            <h2>2. Choisissez votre Horaire et votre Siège</h2>
+            <p class="section-desc">Ny place maintso dia mbola malalaka ny mena kosa efa misy olona Misaotra tompoko.</p>
+            
+            <!-- Liste des voitures et de leurs grilles de sièges -->
+            <div id="client-cars-list"></div>
+        </section>
+
+        <!-- ÉTAPE 3 : FORMULAIRE DE COORDONNÉES -->
+        <section id="step-form-section" class="client-section hidden">
+            <h2>3. Informations de Réservation</h2>
+            <div class="booking-summary">
+                <p>Siège sélectionné : <span id="summary-seat-badge" class="seat-badge">N° -</span> à <span id="summary-time" class="time-tag">00:00</span></p>
+            </div>
+            
+            <form id="booking-form" class="booking-form">
+                <div class="input-group">
+                    <label for="client-name">Anarana feno (Nom complet) :</label>
+                    <input type="text" id="client-name" placeholder="Ohatra: RAKOTO Jean" required>
+                </div>
+                <div class="input-group">
+                    <label for="client-phone">Numéro de téléphone :</label>
+                    <input type="tel" id="client-phone" placeholder="Ohatra: 034 00 000 00" required>
+                </div>
+                <button type="submit" class="btn-submit-booking">Hanamafy ny famandrihana (Confirmer)</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Chargement des scripts voyageurs (Liaison directe avec admin.js) -->
+  <script type="module" src="client.js"></script>
+</body>
+</html>
